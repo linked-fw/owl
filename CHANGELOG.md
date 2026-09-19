@@ -1,5 +1,11 @@
 # @\_linked/owl
 
+## 1.1.3
+
+### Patch Changes
+
+- [#12](https://github.com/linked-fw/owl/pull/12) [`c3db4ff`](https://github.com/linked-fw/owl/commit/c3db4ff91fb17fc914f9cc47b73e71389e3b0fb9) Thanks [@flyon](https://github.com/flyon)! - Exercise the publish path — no functional change.
+
 ## 1.1.2
 
 ### Patch Changes
