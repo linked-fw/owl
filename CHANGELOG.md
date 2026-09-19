@@ -1,5 +1,11 @@
 # @\_linked/owl
 
+## 1.1.4
+
+### Patch Changes
+
+- [#14](https://github.com/linked-fw/owl/pull/14) [`f8a41a6`](https://github.com/linked-fw/owl/commit/f8a41a685b411a504ab840c9f6ef93a1c133c8a3) Thanks [@flyon](https://github.com/flyon)! - Exercise the OIDC publish path — no functional change.
+
 ## 1.1.3
 
 ### Patch Changes
