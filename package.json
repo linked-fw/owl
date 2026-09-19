@@ -2,7 +2,7 @@
   "name": "@_linked/owl",
   "displayName": "Web Ontology Language",
   "license": "UNLICENSED",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "linkedPackage": true,
   "type": "module",
   "author": {
