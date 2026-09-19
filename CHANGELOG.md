@@ -1,5 +1,11 @@
 # @\_linked/owl
 
+## 1.1.1
+
+### Patch Changes
+
+- [#8](https://github.com/linked-fw/owl/pull/8) [`2bd5200`](https://github.com/linked-fw/owl/commit/2bd520085d9eaeb5e7df3b6ee5cea0f089f0565d) Thanks [@flyon](https://github.com/flyon)! - Exercise the shared release workflow — no functional change.
+
 ## 1.1.0
 
 ### Minor Changes
