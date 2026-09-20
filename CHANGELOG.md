@@ -1,5 +1,11 @@
 # @\_linked/owl
 
+## 1.1.5
+
+### Patch Changes
+
+- [#16](https://github.com/linked-fw/owl/pull/16) [`93004df`](https://github.com/linked-fw/owl/commit/93004dfa393e40e8e58b09568c92cb72df52979b) Thanks [@flyon](https://github.com/flyon)! - Declare npm as the package manager for this repo, convert the build scripts off `yarn`, and mark `package-lock.json` as a generated file.
+
 ## 1.1.4
 
 ### Patch Changes
