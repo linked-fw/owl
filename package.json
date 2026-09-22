@@ -12,7 +12,7 @@
     "email": "rpwverheij@gmail.com"
   },
   "main": "lib/esm/index.js",
-  "types": "./lib/esm/index.d.ts",
+  "types": "index.d.ts",
   "scripts": {
     "start": "npm exec linked dev",
     "build": "rimraf ./lib && npm run build-esm && npm run copy-to-lib",
