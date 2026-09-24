@@ -1,7 +1,5 @@
 import { Prefix } from '@_linked/core/utils/Prefix';
 import { createNameSpace } from '@_linked/core/utils/NameSpace';
-import { linkedOntology } from '../package.js';
-import * as _this from './owl.js';
 
 const dataFile = '../data/owl.json';
 export const loadData = () => {
@@ -66,4 +64,3 @@ export const owl = {
   equivalentProperty,
 };
 
-linkedOntology(_this, ns, 'owl', loadData, dataFile);
