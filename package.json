@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@_linked/core": "^2.0.1",
-    "lincd-rdfs": "*"
+    "@_linked/rdfs": "^1.0.0"
   },
   "devDependencies": {
     "@_linked/cli": "^1.2",
