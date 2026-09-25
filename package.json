@@ -21,7 +21,7 @@
     "test": "node --test test/*.test.mjs"
   },
   "dependencies": {
-    "@_linked/core": "^2.0.1",
+    "@_linked/core": "^2.22.8",
     "@_linked/rdfs": "^1.0.0"
   },
   "devDependencies": {
