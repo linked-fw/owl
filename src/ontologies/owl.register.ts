@@ -11,7 +11,7 @@
  * From a sibling module the same import is ordinary and survives.
  */
 import * as terms from './owl.js';
-import {loadData, ns} from './owl.js';
+import {dataFiles, loadData, ns} from './owl.js';
 import {linkedOntology} from '../package.js';
 
-linkedOntology(terms, ns, 'owl', loadData, '../data/owl.json');
+linkedOntology(terms, ns, 'owl', loadData, dataFiles);

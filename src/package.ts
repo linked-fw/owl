@@ -23,4 +23,4 @@ export const {
   getPackageShape,
   packageExports,
   packageName,
-} = linkedPackage('@_linked/owl');
+} = linkedPackage('@_linked/owl', {mirrors: 'http://www.w3.org/2002/07/owl#'});

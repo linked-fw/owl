@@ -1,12 +1,13 @@
 import { objectProperty } from '@_linked/core/shapes/SHACL';
 import type { NodeReferenceValue } from '@_linked/core/utils/NodeReference';
-import { Shape } from '@_linked/core/shapes/Shape';
 import { Property, Resource } from '@_linked/rdfs/shapes';
 import { owl } from '../ontologies/owl.js';
 import { linkedShape } from '../package.js';
+import { Class } from './Class.js';
 
+/** A property restriction (`owl:Restriction`, which OWL makes a subclass of `owl:Class`). */
 @linkedShape
-export class Restriction extends Shape {
+export class Restriction extends Class {
   static targetClass = owl.Restriction;
 
   @objectProperty({

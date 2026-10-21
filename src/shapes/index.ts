@@ -3,5 +3,10 @@
 // shapes registered, without pulling in components, providers or other exports.
 import '../ontologies/owl.register.js';
 
+import './Class.js';
+import './ObjectProperty.js';
+import './DatatypeProperty.js';
+import './AnnotationProperty.js';
+import './NamedIndividual.js';
 import './Ontology.js';
 import './Restriction.js';
