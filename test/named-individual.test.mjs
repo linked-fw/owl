@@ -4,7 +4,7 @@ import test from 'node:test';
 /**
  * A named individual is read with its label, comment and types (an ontology's individuals
  * list shows all three), so the shape carries each one as a property shape: `label` and
- * `type` from `Shape`, `comment` declared on `NamedIndividual`.
+ * `comment` declared on `NamedIndividual`, `type` from `Shape`.
  */
 const {NamedIndividual} = await import(new URL('../lib/esm/shapes/NamedIndividual.js', import.meta.url));
 

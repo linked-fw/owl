@@ -7,12 +7,21 @@ import { linkedShape } from '../package.js';
 
 /**
  * A named individual (`owl:NamedIndividual`). OWL makes it a subclass of `owl:Thing` only, which
- * this package does not shape, so it extends no rdfs shape. Its label (`rdfs:label`) and types
- * (`rdf:type`) come from `Shape`; its comment is declared here.
+ * this package does not shape, so it extends no rdfs shape. It reads its label and comment as
+ * rdfs `Resource` does, and its types through the `rdf:type` property every shape has.
  */
 @linkedShape
 export class NamedIndividual extends Shape {
   static targetClass = owl.NamedIndividual;
+
+  /** The individual's name (`rdfs:label`), one label, as rdfs `Resource` has it. */
+  @literalProperty({
+    path: rdfs.label,
+    maxCount: 1,
+  })
+  get label(): string {
+    return '';
+  }
 
   /** What the individual is (`rdfs:comment`), one description, as rdfs `Resource` has it. */
   @literalProperty({
@@ -21,6 +30,11 @@ export class NamedIndividual extends Shape {
   })
   get comment(): string {
     return '';
+  }
+
+  /** The individual's classes (`rdf:type`, from `Shape`), any number. */
+  get type(): NodeReferenceValue[] {
+    return [];
   }
 
   /**
