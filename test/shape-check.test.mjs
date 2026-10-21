@@ -10,6 +10,9 @@ import { describe, it } from 'node:test';
 import { checkShapeHierarchy } from '@_linked/core/shapes/checkShapeHierarchy';
 import '../lib/esm/shapes/index.js';
 import '../lib/esm/ontologies/owl.register.js';
+// rdfs's data defines the rdf/rdfs terms owl's shapes use (NamedIndividual's rdfs:comment).
+import '@_linked/rdfs/ontologies/rdf.register.js';
+import '@_linked/rdfs/ontologies/rdfs.register.js';
 import { packageName } from '../lib/esm/package.js';
 
 const manifest = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));

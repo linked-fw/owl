@@ -11,8 +11,9 @@ The ontology data ships as Turtle, and the package shapes OWL's classes and prop
 - New shapes: `Class` (`owl:Class`, extends rdfs `Class`; `disjointWith`, `equivalentClass`),
   `ObjectProperty` (`equivalentProperty`, `inverseOf`), `DatatypeProperty` and
   `AnnotationProperty` (`equivalentProperty`), each extending rdfs `Property`, and
-  `NamedIndividual` (`sameAs`, `differentFrom`; OWL makes it a subclass of `owl:Thing` only, so
-  it extends no rdfs shape). Every relation between classes, properties or individuals is
+  `NamedIndividual` (`sameAs`, `differentFrom`, and `comment` (`rdfs:comment`) next to the
+  `label` and `type` every shape has; OWL makes it a subclass of `owl:Thing` only, so it extends
+  no rdfs shape). Every relation between classes, properties or individuals is
   multi-valued: OWL states no cardinality and describes each as relating "two given" terms.
 - `Ontology` gains `versionInfo`, `versionIRI` and `priorVersion` (single) and `imports`,
   `backwardCompatibleWith` and `incompatibleWith` (multi-valued).
