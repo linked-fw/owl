@@ -1,5 +1,5 @@
 ---
-'@_linked/owl': major
+'@_linked/owl': minor
 ---
 
 The ontology data ships as Turtle, and the package shapes OWL's classes and properties.
