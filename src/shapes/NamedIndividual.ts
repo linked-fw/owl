@@ -1,5 +1,5 @@
 import { literalProperty, objectProperty } from '@_linked/core/shapes/SHACL';
-import { rdfs } from '@_linked/core/ontologies/rdfs';
+import * as rdfs from '@_linked/rdfs/ontologies/rdfs';
 import { Shape } from '@_linked/core/shapes/Shape';
 import type { NodeReferenceValue } from '@_linked/core/utils/NodeReference';
 import * as owl from '../ontologies/owl.js';
