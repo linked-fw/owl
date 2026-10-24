@@ -1,5 +1,11 @@
 # @\_linked/owl
 
+## 1.6.3
+
+### Patch Changes
+
+- [#68](https://github.com/linked-fw/owl/pull/68) [`9c6afb7`](https://github.com/linked-fw/owl/commit/9c6afb7a85e48e2d96b143b730150230872ec669) Thanks [@flyon](https://github.com/flyon)! - `NamedIndividual` takes `rdfs:label` and `rdfs:comment` from `@_linked/rdfs/ontologies/rdfs` (the vocabulary package) instead of core's internal `@_linked/core/ontologies/rdfs` module.
+
 ## 1.6.2
 
 ### Patch Changes
