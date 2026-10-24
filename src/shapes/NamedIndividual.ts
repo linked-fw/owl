@@ -2,7 +2,7 @@ import { literalProperty, objectProperty } from '@_linked/core/shapes/SHACL';
 import { rdfs } from '@_linked/core/ontologies/rdfs';
 import { Shape } from '@_linked/core/shapes/Shape';
 import type { NodeReferenceValue } from '@_linked/core/utils/NodeReference';
-import { owl } from '../ontologies/owl.js';
+import * as owl from '../ontologies/owl.js';
 import { linkedShape } from '../package.js';
 
 /**

@@ -1,7 +1,7 @@
 import { objectProperty } from '@_linked/core/shapes/SHACL';
 import type { NodeReferenceValue } from '@_linked/core/utils/NodeReference';
 import { Property, Resource } from '@_linked/rdfs/shapes';
-import { owl } from '../ontologies/owl.js';
+import * as owl from '../ontologies/owl.js';
 import { linkedShape } from '../package.js';
 import { Class } from './Class.js';
 
