@@ -1,5 +1,29 @@
 # @\_linked/owl
 
+## 1.6.0
+
+### Minor Changes
+
+- [#62](https://github.com/linked-fw/owl/pull/62) [`7c0f1c3`](https://github.com/linked-fw/owl/commit/7c0f1c35cd66d0ef87ae012a950152f93fdfee2c) Thanks [@flyon](https://github.com/flyon)! - The `owl` accessor modules are generated from `src/data/owl.ttl` by `linked generate-ontology`
+  (`package.json` `"linkedOntologies"`), and `linked build` fails when they are stale.
+  `ontologies/owl` exports one named term for each of the 77 subjects of the namespace (up from 44).
+  
+  Breaking changes:
+  
+  - The aggregated `owl` object is gone. Import the module as a namespace:
+  
+    ```ts
+    import * as owl from '@_linked/owl/ontologies/owl';
+    static targetClass = owl.Class;
+    ```
+  
+  - `ns`, `dataFiles`, `loadData` and `_ontologyResource` moved to `@_linked/owl/ontologies/owl.data`;
+    `import * as owl` no longer reaches them, and the registered ontology carries only its terms.
+  - `_ontologyResource` is now the namespace IRI `http://www.w3.org/2002/07/owl#`, like every
+    generated data module; it was the ontology's own IRI, `http://www.w3.org/2002/07/owl`.
+  - No terms were renamed.
+  - Requires `@_linked/core` ^2.41.0 and `@_linked/rdfs` ^1.4.0.
+
 ## 1.5.1
 
 ### Patch Changes
