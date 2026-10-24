@@ -39,8 +39,9 @@ New classes or properties never go there; a term a standard lacks belongs in the
 ontology package.
 
 The official file carries its own ontology header (on `<http://www.w3.org/2002/07/owl>`, without
-the `#`), so this package has no `-added` file. `_ontologyResource` is the namespace IRI
-(`…/owl#`), like every generated data module.
+the `#`), so this package has no `-added` file. 
+`_ontologyResource` is that ontology IRI, `http://www.w3.org/2002/07/owl` (the generator takes it from the
+`owl:Ontology` declaration).
 
 ## Development
 
