@@ -1,7 +1,7 @@
 import { ShapeSet } from '@_linked/core/collections/ShapeSet';
 import { objectProperty } from '@_linked/core/shapes/SHACL';
 import { Property } from '@_linked/rdfs/shapes';
-import { owl } from '../ontologies/owl.js';
+import * as owl from '../ontologies/owl.js';
 import { linkedShape } from '../package.js';
 
 /** An OWL data property (`owl:DatatypeProperty`, a subclass of `rdf:Property`). */
