@@ -1,5 +1,14 @@
 # @\_linked/owl
 
+## 1.6.1
+
+### Patch Changes
+
+- [#64](https://github.com/linked-fw/owl/pull/64) [`2119c69`](https://github.com/linked-fw/owl/commit/2119c6917072ed49a860e56e803acc019f01d0e9) Thanks [@flyon](https://github.com/flyon)! - `src/data/owl.ttl` is the W3C's own Turtle, as served at `https://www.w3.org/2002/07/owl`
+  (`owl:versionInfo "$Date: 2009/11/15 10:54:12 $"`), with a comment naming the source. The triples
+  are unchanged (the package's copy was a re-serialization of the same file), so are the 77 terms.
+  New README: the namespace import, the source and the `-added` convention.
+
 ## 1.6.0
 
 ### Minor Changes
