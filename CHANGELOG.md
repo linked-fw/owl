@@ -1,5 +1,11 @@
 # @\_linked/owl
 
+## 1.5.1
+
+### Patch Changes
+
+- [#60](https://github.com/linked-fw/owl/pull/60) [`1287fd4`](https://github.com/linked-fw/owl/commit/1287fd4370dddf24efea16004fc4be344be5a05d) Thanks [@flyon](https://github.com/flyon)! - Ships `lib/esm/data/shapes.ttl`; core range raised.
+
 ## 1.5.0
 
 ### Minor Changes
