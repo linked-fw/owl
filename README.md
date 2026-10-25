@@ -49,3 +49,7 @@ the `#`), so this package has no `-added` file.
 npx linked build    # checks the ontology modules, compiles, writes lib/esm/data/shapes.ttl
 npm test            # runs against lib/
 ```
+
+## Data license
+
+The package code is MIT licensed (see `LICENSE`). The bundled ontology data is derived from the W3C OWL specification and is not covered by the MIT license: it remains under the W3C Software and Document License, https://www.w3.org/copyright/software-license-2023/. See `NOTICE`.
