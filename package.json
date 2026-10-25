@@ -1,7 +1,7 @@
 {
   "name": "@_linked/owl",
   "displayName": "Web Ontology Language",
-  "license": "MIT",
+  "license": "MIT AND W3C-20150513",
   "files": [
     "lib",
     "CHANGELOG.md",
