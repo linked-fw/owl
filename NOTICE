@@ -1,0 +1,8 @@
+@_linked/owl
+
+The code in this package is licensed under the MIT License (see LICENSE).
+
+The MIT License does not cover the bundled ontology data. That data is derived from the W3C OWL specification and remains under its own license:
+
+W3C Software and Document License
+https://www.w3.org/copyright/software-license-2023/
