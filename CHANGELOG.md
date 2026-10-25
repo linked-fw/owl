@@ -1,5 +1,11 @@
 # @\_linked/owl
 
+## 1.6.4
+
+### Patch Changes
+
+- [#70](https://github.com/linked-fw/owl/pull/70) [`d6c9418`](https://github.com/linked-fw/owl/commit/d6c9418bd7ea235d47a648bcd7a6bb766a54d516) Thanks [@flyon](https://github.com/flyon)! - license: MIT; data license noted
+
 ## 1.6.3
 
 ### Patch Changes
