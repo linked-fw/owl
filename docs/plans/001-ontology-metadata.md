@@ -144,4 +144,4 @@ before after a rebuild.
 
 ## Progress
 
-- [ ] OA
+- [x] OA — landed on `dev` (core, owl, CN); reports owl `docs/reports/003-ontology-metadata-accessors.md`, core `docs/reports/083-ontology-status-individuals.md`.
