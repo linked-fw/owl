@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "@_linked/core": "^2.41.0",
+    "@_linked/dcmi": "^1.6.3",
     "@_linked/rdfs": "^1.4.0"
   },
   "devDependencies": {
