@@ -18,6 +18,32 @@ static targetClass = owl.Class;
 from the data (`package.json` `"linkedOntologies"`), and `linked build` fails when they are stale;
 never edit them by hand.
 
+## Ontology metadata
+
+`Ontology` (`@_linked/owl/shapes/Ontology`) reads what an ontology states about itself:
+
+| Accessor | Path | Value |
+|---|---|---|
+| `title` | `dcterms:title` | literal, one |
+| `description` | `dcterms:description` | literal, one |
+| `preferredNamespacePrefix` | `vann:preferredNamespacePrefix` | literal, one |
+| `preferredNamespaceUri` | `vann:preferredNamespaceUri` | literal, one |
+| `creator` | `dcterms:creator` | IRI, one |
+| `contributor` | `dcterms:contributor` | IRIs, any number |
+| `maintainer` | `schema:maintainer` (`http://schema.org/maintainer`) | IRIs, any number |
+| `status` | `adms:status` (`http://www.w3.org/ns/adms#status`) | IRI, one |
+
+```ts
+const o = await Ontology.select((o) => [o.title, o.preferredNamespacePrefix, o.status]).for({id});
+```
+
+The status is one of `@_linked/core`'s `core:Draft`, `core:ReadyForReview` and `core:Published`
+(`coreOntology` in `@_linked/core/ontologies/linked-core`). `prefix` and `declaredPrefix` are the
+SHACL prefix declaration (`sh:prefix`), not the preferred prefix. The Dublin Core terms come from
+`@_linked/dcmi`; the VANN, ADMS and schema.org terms are named by IRI in
+`ontologies/metadata-terms`, so the package depends on neither a VANN nor an ADMS package, nor on
+`@_linked/schema`.
+
 ## The data
 
 `src/data/owl.ttl` is the OWL 2 vocabulary as the W3C publishes it at the namespace,

@@ -10,7 +10,9 @@
   ],
   "version": "1.6.5",
   "packageManager": "npm@12.2.0",
-  "linkedPackage": true,
+  "linked": {
+    "kind": "ontology"
+  },
   "linkedOntologies": {
     "owl": {
       "namespace": "http://www.w3.org/2002/07/owl#"
@@ -31,6 +33,7 @@
   },
   "dependencies": {
     "@_linked/core": "^2.41.0",
+    "@_linked/dcmi": "^1.6.3",
     "@_linked/rdfs": "^1.4.0"
   },
   "devDependencies": {
