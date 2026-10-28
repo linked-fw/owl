@@ -1,5 +1,20 @@
 # @\_linked/owl
 
+## 1.7.0
+
+### Minor Changes
+
+- [#77](https://github.com/linked-fw/owl/pull/77) [`6a2669d`](https://github.com/linked-fw/owl/commit/6a2669d990fc01b3d8f0edf241b88d6c3abd6a96) Thanks [@flyon](https://github.com/flyon)! - `Ontology` reads an ontology's metadata: `title` and `description` (`dcterms:`), `preferredNamespacePrefix`
+  and `preferredNamespaceUri` (`vann:`, literals), `creator` (`dcterms:creator`, one IRI), `contributor`
+  (`dcterms:contributor`) and `maintainer` (`schema:maintainer`), any number of IRIs, and `status`
+  (`adms:status`, one IRI, one of `@_linked/core`'s `core:Draft`, `core:ReadyForReview`, `core:Published`).
+  The package now depends on `@_linked/dcmi`; the VANN, ADMS and schema.org terms are named by IRI in
+  `ontologies/metadata-terms`.
+
+### Patch Changes
+
+- [#77](https://github.com/linked-fw/owl/pull/77) [`7fe1356`](https://github.com/linked-fw/owl/commit/7fe1356de1c50d8e2238c5051e10477bdea7398a) Thanks [@flyon](https://github.com/flyon)! - `package.json` says what this package is in `"linked": {"kind": "ontology"}` instead of `"linkedPackage": true`, which the CLI and server no longer read.
+
 ## 1.6.5
 
 ### Patch Changes
