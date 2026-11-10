@@ -13,8 +13,11 @@ import * as owl from '@_linked/owl/ontologies/owl';
 static targetClass = owl.Class;
 ```
 
-`ontologies/owl` has one named export per term (77); `ontologies/owl.data` holds `ns`,
-`dataFiles`, `_ontologyResource` and `loadData()`. `linked generate-ontology` writes the modules
+`ontologies/owl` has one named export per term (77), each an `{id}` with the term's full IRI.
+`ontologies/index` registers the ontology with its data and suggested prefix; the package entry and
+`shapes/index` import it. The package registers no prefix: an app lists the prefixes it uses in
+its own prefix map. Where code needs a namespace function, core's `createNameSpace('http://www.w3.org/2002/07/owl#')` gives one.
+`linked generate-ontology` writes the modules
 from the data (`package.json` `"linkedOntologies"`), and `linked build` fails when they are stale;
 never edit them by hand.
 
@@ -38,8 +41,10 @@ const o = await Ontology.select((o) => [o.title, o.preferredNamespacePrefix, o.s
 ```
 
 The status is one of `@_linked/core`'s `core:Draft`, `core:ReadyForReview` and `core:Published`
-(`coreOntology` in `@_linked/core/ontologies/linked-core`). `prefix` and `declaredPrefix` are the
-SHACL prefix declaration (`sh:prefix`), not the preferred prefix. The Dublin Core terms come from
+(`coreOntology` in `@_linked/core/ontologies/linked-core`). `declaredPrefix` is the SHACL prefix
+declaration (`sh:prefix`), not the preferred prefix. `prefix` is the prefix the app's prefix map
+gives the ontology's IRI (undefined when the map has none; for another map,
+`Prefix.getPrefix(o.id, map)`). The Dublin Core terms come from
 `@_linked/dcmi`; the VANN, ADMS and schema.org terms are named by IRI in
 `ontologies/metadata-terms`, so the package depends on neither a VANN nor an ADMS package, nor on
 `@_linked/schema`.
@@ -67,8 +72,6 @@ ontology package.
 The official file carries its own ontology header (on `<http://www.w3.org/2002/07/owl>`, without
 the `#`) but no suggested prefix, so `src/data/owl-added.ttl` adds `vann:preferredNamespacePrefix
 "owl"` and `vann:preferredNamespaceUri` to it.
-`_ontologyResource` is that ontology IRI, `http://www.w3.org/2002/07/owl` (the generator takes it from the
-`owl:Ontology` declaration).
 
 ## Development
 

@@ -33,6 +33,12 @@ export class Ontology extends Resource {
     return '';
   }
 
+  /**
+   * The prefix the app's prefix map (the map in use, loaded with `Prefix.load`) gives this
+   * ontology's IRI, or undefined when the map has none. No package registers a prefix, so an app
+   * that wants one lists it in its own map. To read the prefix in another map, call
+   * `Prefix.getPrefix(ontology.id, map)`.
+   */
   get prefix(): string | undefined {
     return Prefix.getPrefix(this.id) || undefined;
   }
