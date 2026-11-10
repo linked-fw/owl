@@ -1,26 +1,26 @@
 ---
 summary: >
-  owl sub-plan of Create Now master plan 070 (ontology create, edit, review, publish): step OA —
+  owl sub-plan of the host app's ontology master plan (create, edit, review, publish): step OA —
   metadata accessors on `@_linked/owl`'s `Ontology` (title, description, preferred namespace
   prefix/URI, creator, contributor, maintainer, status), owl depending on `@_linked/dcmi`, the
-  ontology status individuals in `@_linked/core`, and CN's `PackageOntology` shrinking to its `dc:`
-  accessors in the same landing. A step agent reads its section and the Contracts here.
+  ontology status individuals in `@_linked/core`, and the host app's own ontology shape shrinking
+  to its `dc:` accessors in the same landing. A step agent reads its section and the Contracts here.
 status: Plan
 ---
 
-# 001 — Ontology metadata accessors (sub-plan of CN plan 070)
+# 001 — Ontology metadata accessors (sub-plan of the host app's ontology plan)
 
-Master plan: CN `docs/plans/070-ontology-create-edit-review-publish.md` (in
-`/Users/rene/web/create_now`: how to use it, rules for every step, status table, waves, numbers,
-starter prompt, decisions). CN sub-plan: CN `docs/plans/200-ontology-cn-steps.md` (EC, TS, NP, SV,
-NO, AD). Steps land on integration branch `dev` of owl, core and CN; see 070 "Rules for every step".
+Master plan: the host app's ontology master plan (how to use it, rules for every step, status
+table, waves, numbers, starter prompt, decisions), with a sub-plan for the host app's own steps (EC,
+TS, NP, SV, NO, AD). Steps land on integration branch `dev` of owl, core and the host app; see the
+master plan's "Rules for every step".
 
 ## Contracts
 
-Copied verbatim from plan 070; a step that changes it updates it here, in 070 and in CN sub-plan
-200, in the same landing.
+Copied verbatim from the master plan; a step that changes it updates it here, in the master plan
+and in the host app's sub-plan, in the same landing.
 
-- **K-meta** (provider OA; consumers NP, SV, CN `projectOntologies.ts`): `@_linked/owl` `Ontology`
+- **K-meta** (provider OA; consumers NP, SV, the host app's ontology list): `@_linked/owl` `Ontology`
   gains accessors `title` (`dcterms:title`), `description` (`dcterms:description`),
   `preferredNamespacePrefix` (`vann:preferredNamespacePrefix`, literal), `preferredNamespaceUri`
   (`vann:preferredNamespaceUri`, literal), `creator` (`dcterms:creator`, IRI, maxCount 1),
@@ -31,16 +31,16 @@ Copied verbatim from plan 070; a step that changes it updates it here, in 070 an
   dependency). Status individuals in `@_linked/core`: class `core:OntologyStatus`, individuals
   `core:Draft`, `core:ReadyForReview`, `core:Published` (IRIs
   `https://linked.cm/ont/core/OntologyStatus`, `…/Draft`, `…/ReadyForReview`, `…/Published`),
-  exported on `coreOntology`. CN's `PackageOntology` keeps only `elementsTitle` /
+  exported on `coreOntology`. The host app's own ontology shape keeps only `elementsTitle` /
   `elementsDescription` (`dc:`); its readers switch to the owl accessors in the same landing.
 
 ## OA — Ontology metadata accessors and status individuals
 
-**Depends on:** nothing (wave 1, parallel with EC and TS). **Repos:** core, owl, CN (worktree
-`--with owl,core`). **Plan doc:** owl `docs/plans/002-…`. **Reports:** owl `docs/reports/003-…`,
+**Depends on:** nothing (wave 1, parallel with EC and TS). **Repos:** core, owl, the host app
+(worktree `--with owl,core`). **Plan doc:** owl `docs/plans/002-…`. **Reports:** owl `docs/reports/003-…`,
 core `docs/reports/081-…` (a short one; the owl report links it). **Test port:** 4352. **Size:**
 small to medium, 2 phases: (1) core status individuals, owl accessors and the local term module,
-with tests and changesets; (2) CN's `PackageOntology` shrinks and its readers switch, regular set.
+with tests and changesets; (2) the host app's ontology shape shrinks and its readers switch, regular set.
 
 **Goal.** K-meta: every consumer reads an ontology's title, description, preferred prefix and
 namespace, creator, contributors, maintainers and status through `@_linked/owl`'s `Ontology`, and
@@ -60,10 +60,10 @@ the status values are public individuals in `@_linked/core`.
   `creator` (`dcterms:creator`, IRI, maxCount 1), `contributor` (`dcterms:contributor`, IRI, set),
   `maintainer` (IRI, set), `status` (`adms:status`, IRI, maxCount 1). Readme section on the
   accessors. Changeset minor.
-- **CN**: `src/shapes/ontologies/PackageOntology.ts` keeps only `elementsTitle` and
-  `elementsDescription` (`dc:`); `src/services/projectOntologies.ts` reads `title`, `description`,
+- **Host app**: its ontology shape (a subclass of `Ontology`) keeps only `elementsTitle` and
+  `elementsDescription` (`dc:`); its ontology list reads `title`, `description`,
   `preferredNamespacePrefix`, `preferredNamespaceUri` from the owl accessors; its test mock follows.
-  CN's local `vann.ts` / `adms.ts` stay for CN's other uses.
+  The host app's local vann and adms term modules stay for its other uses.
 - Not here: writing creator/contributor/maintainer/status (SV), showing them (NP).
 
 **Verify.**
@@ -72,12 +72,11 @@ the status values are public individuals in `@_linked/core`.
 - owl: `npx linked build && npm test` (includes `test/shape-check.test.mjs`, which now lists dcmi
   among the dependencies); a test that `Ontology`'s property shapes have the eight paths above with
   the stated kinds and counts.
-- CN: `npm run typecheck:gate`; `npx vitest run src/services/projectOntologies.test.ts`;
-  `CN_TEST_PORT=4352 npm run test:regular`; the Ontology Manager list on :4352 still shows titles,
-  prefixes and descriptions.
+- Host app: its typecheck gate, its ontology list test and its regular test set on port 4352; the
+  Ontology Manager list on :4352 still shows titles, prefixes and descriptions.
 
-**Done when.** K-meta holds as written; core, owl and CN land together (core, owl, then CN), each
-framework repo with its changeset; the owner's CN on :4040 shows the Ontology Manager list as
+**Done when.** K-meta holds as written; core, owl and the host app land together (core, owl, then the
+host app), each framework repo with its changeset; the owner's running host app on :4040 shows the Ontology Manager list as
 before after a rebuild.
 
 ### Files (found in the code, on owl `dev` 7fe1356 and core `dev`)
@@ -108,11 +107,9 @@ before after a rebuild.
 - core `src/ontologies/linked-core.ts`: namespace `https://linked.cm/ont/core/` :20, term pattern
   `const OntologyPackage = ns('OntologyPackage');` :31, `coreOntology` :97-129. `src/data/core.ttl`:
   class pattern :35-39; no individuals yet. Last report 080.
-- CN `src/shapes/ontologies/PackageOntology.ts` (:18-57): `title` :23, `elementsTitle` :29,
-  `description` :35, `elementsDescription` :41, `preferredPrefix` :47, `preferredNamespace` :53.
-  Reader `src/services/projectOntologies.ts:19` (import), :122-131 (`select`), :137-149 (use);
-  mock `src/services/projectOntologies.test.ts:37-38`; wiring `src/shapes/index.ts:103`,
-  `src/shapes/ontologies/index.ts:12`. CN's `src/shapes/ontologies/vann.ts`, `adms.ts`, `foaf.ts`.
+- Host app: its ontology shape declares `title`, `elementsTitle`, `description`,
+  `elementsDescription`, `preferredPrefix` and `preferredNamespace`; one service reads them with a
+  `select`, and its test mocks them. It has its own vann, adms and foaf term modules.
 
 ### Pitfalls
 
@@ -122,26 +119,27 @@ before after a rebuild.
   not redeclared.
 - **No `@_linked/schema` dependency** (it pulls in react, primitives and server-utils): name
   `schema:maintainer` by IRI with the `http://` namespace.
-- **Land together**: CN's reader changes need the new owl in `packages-local`; land core, owl,
-  then CN, and rebuild core and owl in the main checkout (`npx linked build`) before the owner's CN
-  restarts.
-- The owl shape check runs against every registered mirror in CN (schema included): run CN's boot
-  once on :4352 and check the log for shape-hierarchy warnings.
-- Build the CLI first after pulling `dev` (070 Rules).
-- Do not edit plan 057's CN files (070 §Waves); `projectOntologies.ts` is not one of them.
+- **Land together**: the host app's reader changes need the new owl in `packages-local`; land
+  core, owl, then the host app, and rebuild core and owl in the main checkout (`npx linked build`)
+  before the owner's host app restarts.
+- The owl shape check runs against every registered mirror in the host app (schema included): boot
+  it once on :4352 and check the log for shape-hierarchy warnings.
+- Build the CLI first after pulling `dev` (the master plan's rules).
+- Do not edit the host app files another running plan owns (the master plan's §Waves).
 
 ### Architecture
 
-- CN arch-03 (standard-vocabulary packages, `@_linked/*` layering), arch-10 (shapes and
-  accessors); the CN decisions record in plan 070 (people in the `.ttl`, status values).
+- The host app's architecture docs on standard-vocabulary packages (`@_linked/*` layering) and on
+  shapes and accessors; the decisions record in the master plan (people in the `.ttl`, status
+  values).
 
 ### Tests
 
 - **Quick gate (1–2 min):** core `npm test -- <the ontology test>` or `npm test`; owl
-  `npx linked build && npm test`; CN `npx vitest run src/services/projectOntologies.test.ts`.
-- **Full gate:** core and owl `npx linked build && npm test`; CN `npm run typecheck:gate` and
-  `CN_TEST_PORT=4352 npm run test:regular`.
+  `npx linked build && npm test`; the host app's ontology list test.
+- **Full gate:** core and owl `npx linked build && npm test`; the host app's typecheck gate and
+  regular test set.
 
 ## Progress
 
-- [x] OA — landed on `dev` (core, owl, CN); reports owl `docs/reports/003-ontology-metadata-accessors.md`, core `docs/reports/083-ontology-status-individuals.md`.
+- [x] OA — landed on `dev` (core, owl, host app); reports owl `docs/reports/003-ontology-metadata-accessors.md`, core `docs/reports/083-ontology-status-individuals.md`.
