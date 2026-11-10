@@ -65,7 +65,8 @@ New classes or properties never go there; a term a standard lacks belongs in the
 ontology package.
 
 The official file carries its own ontology header (on `<http://www.w3.org/2002/07/owl>`, without
-the `#`), so this package has no `-added` file. 
+the `#`) but no suggested prefix, so `src/data/owl-added.ttl` adds `vann:preferredNamespacePrefix
+"owl"` and `vann:preferredNamespaceUri` to it.
 `_ontologyResource` is that ontology IRI, `http://www.w3.org/2002/07/owl` (the generator takes it from the
 `owl:Ontology` declaration).
 

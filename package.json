@@ -15,7 +15,11 @@
   },
   "linkedOntologies": {
     "owl": {
-      "namespace": "http://www.w3.org/2002/07/owl#"
+      "namespace": "http://www.w3.org/2002/07/owl#",
+      "data": [
+        "owl.ttl",
+        "owl-added.ttl"
+      ]
     }
   },
   "type": "module",
