@@ -1,5 +1,15 @@
 # @\_linked/owl
 
+## 2.0.0
+
+### Major Changes
+
+- [#83](https://github.com/linked-fw/owl/pull/83) [`63ec086`](https://github.com/linked-fw/owl/commit/63ec086b249b1c824cf58a466abbd7b0b42dbec3) Thanks [@flyon](https://github.com/flyon)! - Ontology modules in the one-index layout, and no prefix registered. `ontologies/owl` holds only the terms, each an `{id}` with its full IRI. `ontologies/index` registers every ontology of the package with core's `registerOntologies` (data and suggested prefix); the package entry and `shapes/index` import it. Removed: the `ontologies/<name>.data` and `ontologies/<name>.register` modules (`ns`, `dataFiles`, `loadData`, `_ontologyResource`) and `linkedOntology` from `package` (now `registerOntologies`). The package no longer adds a prefix: an app lists the prefixes it uses in its own prefix map. For a namespace function use `createNameSpace(namespace)` from `@_linked/core/utils/NameSpace`; for the data, the registration from `getRegisteredOntologies()`. `Ontology.prefix` is the prefix the app's prefix map gives the ontology (undefined when the map has none). Namespaces, term names and term IRIs are unchanged. Requires the core release with `registerOntologies`.
+
+### Patch Changes
+
+- [#83](https://github.com/linked-fw/owl/pull/83) [`c5bff79`](https://github.com/linked-fw/owl/commit/c5bff7945ec2c90ebab2b14d44b33b6ca443da5a) Thanks [@flyon](https://github.com/flyon)! - The ontology data carries its suggested prefix (owl) as `vann:preferredNamespacePrefix` and `vann:preferredNamespaceUri` in an added data file, as `linked build` now requires; modules regenerated. Prefixes and terms unchanged.
+
 ## 1.7.0
 
 ### Minor Changes
